@@ -1,7 +1,7 @@
 #include <LiquidCrystal_I2C.h>
 
 /*-------------------------------------------------------------------------------------------------------------*/
-LiquidCrystal_I2C lcd(0x20,20,4);//For proteus Simulations set it to (0x20,20,4), for Arduino uses (0x27,20,4).
+LiquidCrystal_I2C lcd(0x27,20,4);//For proteus Simulations set it to (0x20,20,4), for Arduino uses (0x27,20,4).
 //Sets Pins
 const int Start = 3, Set = 2, Read = 4;
 const int ML_1 = 11,ML_2 = 10, MR_1 = 9,MR_2 =8; 
@@ -188,7 +188,6 @@ void lcd_read(){
     delay(300);
     lcd.clear();
   }
-  
 }
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -228,9 +227,6 @@ void loop() {
     if(digitalRead(Set)== HIGH){
         r++;
         delay(300);
-        if(r>10){
-          r=0;
-        }
       }
   }
 
@@ -238,10 +234,6 @@ void loop() {
   //Set For Run Mode
     lcd_display();
     checker();
-    Serial.print("R =");
-    Serial.println(R_Sides);
-    Serial.print("B =");
-    Serial.println(B_Sides);
 
     //Wall Counter
       if(digitalRead(Set)== HIGH){
